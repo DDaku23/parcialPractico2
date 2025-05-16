@@ -18,7 +18,7 @@
           <p class="card-text"><b>Categories:</b> {{anime.categorie}}</p>
           <!-- COMPLETAR PARA INCLUIR LA CANTIDAD DE TEMPORADAS -->
           <p class="card-text"><b># seasons:</b> {{anime.seasons.length}} </p>
-          <a href="#" (click)="onSelected(anime)" routerLink="/anime/id" class="btn btn-primary btn-sm">More information</a>
+          <a [routerLink]="['/anime', anime.id]" class="btn btn-primary btn-sm">More information</a>
         </div>
       </div>
     </div>

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimeDetailComponent } from './anime/anime-detail/anime-detail.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: 'anime/:id', component: AnimeDetailComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

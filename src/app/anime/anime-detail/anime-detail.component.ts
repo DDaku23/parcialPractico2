@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Anime } from '../anime';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-anime-detail',
@@ -10,10 +11,10 @@ export class AnimeDetailComponent implements OnInit {
 
   @Input() animeDetail!: Anime;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+  const id = this.route.snapshot.paramMap.get('id');
+
   }
-
-
 }
