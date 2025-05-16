@@ -29,4 +29,16 @@ export class AnimeListComponent implements OnInit {
     this.getAnimes();
   }
 
+  getAverageRating(): number {
+    let totalRating = 0;
+    let count = 0;
+
+    for (const anime of this.animes) {
+      if (anime.Rating) {
+        totalRating += parseFloat(anime.Rating);
+        count++;
+      }
+    }
+    return count > 0 ? totalRating / count : 0;
+  }
 }

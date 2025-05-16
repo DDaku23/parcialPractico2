@@ -1,21 +1,26 @@
-  <br>
-  <div class="container contenedor-animes">
+<div class="container contenedor-animes">
   <div class="row">
     <!-- COMPLETAR CON EL LLAMADO A UNA FUNCIÓN PROPIA QUE CALCULE EL RATING PROMEDIO -->
-    <p>El rating promedio es <span class="badge text-bg-primary rounded-pill"> 7.99 </span></p>
+    <p>El rating promedio es <span class="badge text-bg-primary rounded-pill"> {{getAverageRating()}} </span></p>
     <div *ngIf="selected">
       <app-anime-detail [animeDetail]="selectedBAnime"></app-anime-detail>
       <hr>
     </div>
-    <div class="col-4" *ngFor="let anime of animes">
-        <p>{{anime.name}}</p>
-        <img src={{anime.img}}  alt="anime image" width=50px>
-        <p>⭐{{anime.Rating}} <b>Categories: </b>{{anime.categorie}}</p>
-        <!-- COMPLETAR PARA INCLUIR LA CANTIDAD DE TEMPORADAS -->
-        <p class="card-text"><b># seasons: </b>"COMPLETAR"</p>
-        <a href="#" (click)="onSelected(anime)">More information</a>
-        <hr>
-   </div>
-
+    <div class="col-md-4 mb-4 d-flex justify-content-center" *ngFor="let anime of animes">
+      <div class="card h-100" style="width: 100%; max-width: 320px; margin: 0 auto;">
+        <div style="width:100%;height:220px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img [src]="anime.img" class="card-img-top" alt="anime image"
+            style="width:auto; height:100%; max-width:100%; object-fit:cover;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{anime.name}}</h5>
+          <p class="card-text">⭐{{anime.Rating}}</p>
+          <p class="card-text"><b>Categories:</b> {{anime.categorie}}</p>
+          <!-- COMPLETAR PARA INCLUIR LA CANTIDAD DE TEMPORADAS -->
+          <p class="card-text"><b># seasons:</b> {{anime.seasons.length}} </p>
+          <a href="#" (click)="onSelected(anime)" routerLink="/anime/id" class="btn btn-primary btn-sm">More information</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
